@@ -13,7 +13,7 @@ close-on-exec = true
 # change to django project directory
 
 # at the root of uwsgi
-chdir = /home/wechat/develop/wechat/wechat-js-sdk-demo
+chdir = /home/wechat/dev/wechat/wechat-js-sdk-demo
 
 # load application
 module = app:application

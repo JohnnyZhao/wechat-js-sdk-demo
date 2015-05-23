@@ -5,6 +5,7 @@ urls = (
 )
 
 app = web.application(urls, globals())
+application = app.wsgifunc()
 
 class hello:
     def GET(self, name):
