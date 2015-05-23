@@ -1,4 +1,5 @@
 import web
+from utils.wechat import valid_request
 
 urls = (
     '/(.*)', 'hello'
@@ -9,9 +10,10 @@ application = app.wsgifunc()
 
 class hello:
     def GET(self, name):
-        if not name:
-            name = 'world'
-        return 'hello, %s!' % name
+        data = web.input()
+        if not valid_request(data):
+            return web.notfound()
+        return data.get('echostr')
 
 if __name__ == "__main__":
     app.run()

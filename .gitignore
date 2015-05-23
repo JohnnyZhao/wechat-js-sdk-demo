@@ -3,3 +3,4 @@
 settings.py
 uwsgi.ini
 wechat.pid
+log/*
