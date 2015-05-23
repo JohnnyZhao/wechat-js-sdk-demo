@@ -1,0 +1,52 @@
+[uwsgi]
+# specicy workers, please change this according to the server capacity
+workers = 2
+max-requests = 30000
+enable-threads = true
+
+#set socket listen queue to <n> (default 100, maximum is system dependent)
+socket = :9003
+
+# set close-on-exec flag on the uWSGI socket. This will avoid external processes generated in a request to inherit the socket file descriptor. 
+close-on-exec = true
+
+# change to django project directory
+
+# at the root of uwsgi
+chdir = /home/wechat/develop/wechat/wechat-js-sdk-demo
+
+# load application
+module = app:application
+home =  ../ 
+pythonpath = ./
+
+# uwsgi log
+daemonize = ./log/uwsgi.log
+logdate = true
+logslow = true
+logbig = true
+log-5xx = true
+disable-logging = true
+
+# use master process
+master = true
+
+# will set the uWSGI processes name to something meaningful automatically. 
+auto-procname = true
+
+# use harakiri to kill requests cosing more than 20 seconds
+harakiri = 20
+
+# you will be told why killed in detail 
+harakiri-verbose = true
+
+
+# Some of the supported languages (like python) has the concept of "multiple interpreters". They allows to isolate apps living in the same process. If you do not want this kind of feature use this option. 
+single-interpreter = true
+
+
+# set pidfile 
+pidfile = ./wechat.pid
+
+#set procname prefix
+procname-prefix = wechat_
