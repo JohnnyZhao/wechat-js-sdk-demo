@@ -1,0 +1,46 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+body .nav {
+  background: #209E85;
+}
+body .nav p {
+  margin: 0;
+  padding: 10px;
+  color: white;
+}
+body form #input-container {
+  padding: 20px 20px 10px 20px;
+}
+body form #input-container input {
+  width: 80%;
+  height: 24px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+body .btn-success {
+  padding: 10px 0 10px 0;
+  width: 60%;
+  border: none;
+  background: #209E85;
+  color: white;
+  border-radius: 5px;
+}
+body #score-container {
+  text-align: center;
+}
+body #score-container table {
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: solid #ccc 1px;
+  padding: 10px;
+}
+body #score-container table tr {
+  line-height: 1.5em;
+}

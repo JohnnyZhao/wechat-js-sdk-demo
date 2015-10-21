@@ -1,0 +1,96 @@
+$def with (name, ticket, score)
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta http-equiv="cleartype" content="on">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="msapplication-tap-highlight" content="no">
+        <title>四六级查分</title>
+        <link href="/static/css/style.css" text="text/css" rel="stylesheet"></link>
+    <head>
+    </head>
+    <body>
+        $if score == None:
+            <div class="nav">
+                <p>四六级查分</p>
+            </div>
+            <form method="POST" action="./">
+                <div id="input-container">
+                    $if name:
+                        <input name="name" placeholder="姓名，超过3个字，可只输入前3个" value="$name"></input>
+                    $else:
+                        <input name="name" placeholder="姓名，超过3个字，可只输入前3个"></input>
+
+                    <br />
+
+                    $if ticket:
+                        <input name="ticket" placeholder="请输入15位准考证号" value="$ticket"></input>
+                    $else:
+                        <input name="ticket" placeholder="请输入15位准考证号"></input>
+
+                    <br>
+                </div>
+                <button id="btn-submit" type="submit" class="btn-success">查询成绩</button>
+            </form>
+        $else:
+            <div class="nav">
+                <p>成绩详情</p>
+            </div>
+            $if score=="error":
+                <p>没有查询到相关信息</p>
+            $else:
+                <div id="score-container">
+                    <table>
+                        <tr>
+                            <td>姓名</td>
+                            <td>$score['姓名']</td>
+                        </tr>
+                        <tr>
+                            <td>学校</td>
+                            <td>$score['学校']</td>
+                        </tr>
+                        <tr>
+                            <td>考试类别</td>
+                            <td>$score['考试类别']</td>
+                        </tr>
+                        <tr>
+                            <td>准考证号</td>
+                            <td>$score['准考证号']</td>
+                        </tr>
+                        <tr>
+                            <td>考试时间</td>
+                            <td>$score['考试时间']</td>
+                        </tr>
+                        <tr>
+                            <td>总分</td>
+                            <td>$score['总分']</td>
+                        </tr>
+                        <tr>
+                            <td>听力</td>
+                            <td>$score['听力']</td>
+                        </tr>
+                        <tr>
+                            <td>阅读</td>
+                            <td>$score['阅读']</td>
+                        </tr>
+                        <tr>
+                            <td>写作与翻译</td>
+                            <td>$score['写作与翻译']</td>
+                        </tr>
+                    </table>
+                </div>
+            <div>
+                <button id="btn-submit" class="btn-success" onClick="redirect()">继续查询</button>
+            </div>
+        <script>
+            function redirect(){
+                window.location='/chafen/'
+            }
+        </script>
+    </body>
+</html>

@@ -1,8 +1,8 @@
 MEMCHACHE_HOSTS = ['127.0.0.1:11211']
-DOMAIN = "your domain for wechat"
+DOMAIN = "YOUR DOMAIn"
 
-WECHAT_TOKEN = "you wechat token"
-WECHAT_APPID = "you wechat appid"
-WECHAT_APPSECRET = "your wechat app secret"
+WECHAT_APPID = ""
+WECHAT_APPSECRET = ""
+WECHAT_TOKEN = ""
 
 DEBUG = True

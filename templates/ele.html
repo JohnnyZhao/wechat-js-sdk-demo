@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta http-equiv="cleartype" content="on">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <link rel="shortcut icon" href="http://bbs.niu.com/favicon.ico" type="image/x-icon">
+        <meta name="msapplication-tap-highlight" content="no">
+        <title>饿了么拼单计算器</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="content">
+        </div>
+        <script type="text/jsx">
+            var data = [
+                {'author': '赵余', 'text': '鱼香肉丝 x 1，$17'},
+                {'author': '赵辉', 'text': '肉末茄子 x 1，$18'}
+            ];
+            var OrderBox = React.createClass({
+                getInitialState: function(){
+                    return {data: []};
+                },
+                render: function(){
+                    return (
+                        <div className="orderBox">
+                            <h1>订单列表</h1>
+                            <OrderList data={this.state.data} />
+                            <OrderForm />
+                        </div>
+                    )
+                }
+            });
+
+            var OrderList = React.createClass({
+                render: function(){
+                    var orderNodes = this.props.data.map(function(order){
+                        return (
+                            <Order author={order.author}>{order.text}</Order>
+                        )
+                    });
+                    return (
+                        <div className="orderList">
+                            {orderNodes}
+                        </div>
+                    )
+                }
+            });
+
+            var OrderForm = React.createClass({
+                render: function(){
+                    return (
+                        <div className="orderForm">
+                            This is an order form
+                        </div>
+                    )
+                }
+            });
+
+            var Order = React.createClass({
+                render: function(){
+                    return (
+                        <div className="order">
+                            <h2 className="orderUser">
+                                {this.props.author}
+                            </h2>
+                            {this.props.children}
+                        </div>
+                    )
+                }
+            });
+
+            React.render(
+                <OrderBox data={data} />,
+                document.getElementById('content')
+            );
+        </script>
+    </body>
+</html>
+ 

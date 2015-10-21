@@ -1,0 +1,53 @@
+$def with (days, comment)
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta http-equiv="cleartype" content="on">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <link rel="shortcut icon" href="http://bbs.niu.com/favicon.ico" type="image/x-icon">
+        <meta name="msapplication-tap-highlight" content="no">
+        $if days and comment:
+            <title>为了这台车，我等了$days天，却等来了随机发货，小牛$comment！</title>
+        $else:
+            <title>小牛电动——牛x得令人发指</title>
+        <link href="/static/css/niu.css" text="text/css" rel="stylesheet"></link>
+    <head>
+    </head>
+    <body>
+        <div class="nav">
+            <p><a href="/niu/">小牛电动 — 牛x得令人发指</a></p>
+        </div>
+        <div class="poster-container">
+            <p>为了这台车</p>
+            $if days and comment:
+                <p>我等了<input type="text" id="days" value="$days"></input>天</p>
+            $else:
+                <p>我等了<input type="text" id="days"></input>天</p>
+            <p>却等来了随机发货</p>
+
+            $if days and comment:
+                <p>小牛<input type="text" id="comment" value="$comment"></input>！</p>
+            $else:
+                <p>小牛<input type="text" id="comment"></input>！</p>
+            <div class="btn-container">
+                $if days and comment:
+                    <a class="btn" href="/niu/">重新制作</a>
+                $else:
+                    <a class="btn" id="btn-generate-poster" onClick="redirect()">生成海报</a>
+            </div>
+        </div>
+        <script>
+            function redirect(){
+                var days = document.getElementById('days').value;
+                var comment = document.getElementById('comment').value;
+                window.location='/niu/?days=' + days + '&comment=' + comment;
+            }
+            window.scrollTo(20, 50)
+        </script>
+    </body>
+</html>

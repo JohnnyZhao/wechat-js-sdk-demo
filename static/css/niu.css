@@ -1,0 +1,64 @@
+html {
+  height: 100%;
+}
+html body {
+  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+html body .nav {
+  z-index: 2;
+  min-height: 39px;
+  padding-bottom: 10px;
+  background-color: #212121;
+}
+html body .nav p {
+  margin: 0;
+  padding: 10px;
+  padding-top: 17px;
+}
+html body .nav p a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+html body .poster-container {
+  height: 100%;
+  background-color: #de0929;
+  padding: 4px 0 20px 0;
+}
+html body .poster-container p {
+  color: white;
+  margin: 45px 0;
+  font-size: 35px;
+}
+html body .poster-container p input {
+  font-size: 35px;
+  width: 50px;
+  color: white;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  padding: 0 10px 0 10px;
+  margin-right: 6px;
+  text-align: center;
+  border-radius: 0;
+}
+html body .poster-container p input#comment {
+  width: 180px;
+}
+html body .poster-container .btn-container {
+  padding-top: 20px;
+}
+html body .poster-container .btn-container a {
+  text-decoration: none;
+  background-color: #212121;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+html body .footer {
+  color: #de0929;
+}
